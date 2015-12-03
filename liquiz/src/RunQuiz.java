@@ -1,5 +1,4 @@
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -266,3 +265,416 @@ public class RunQuiz extends JFrame {
 
         pack();
     }
+
+    int max=0;
+   public void prepareQuiz() throws FileNotFoundException{
+       File f  = new File("quizzes/"+filename+".quiz");
+       Scanner sc  = new Scanner(f);
+       String name = sc.next();
+       int count = sc.nextInt();
+       max=count;
+       myquiz = new quiz(count);
+    for(int i=0;i<count;i++)
+    {
+        int type = sc.nextInt();
+        if(type!=2){
+        String question = "";
+      String temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            question+=temp+" ";
+            temp=sc.next();
+        }
+         String answer1 = "";
+       temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            answer1+=temp+" ";
+            temp=sc.next();
+        }  
+         String answer2 = "";
+       temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            answer2+=temp+" ";
+            temp=sc.next();
+        }  
+           String answer3 = "";
+       temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            answer3+=temp+" ";
+            temp=sc.next();
+        }  
+           String answer4 = "";
+       temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            answer4+=temp+" ";
+            temp=sc.next();
+        }  
+        
+            ArrayList<Integer> answers = new ArrayList<>();
+              temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            answers.add(Integer.parseInt(temp));
+            temp=sc.next();
+        }  
+   
+       question q  = new question(question, answer1, answer2, answer3, answer4, answers , new   ArrayList<Integer>() , type);
+       myquiz.add(q);}
+        else{
+            
+          String question = "";
+      String temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            question+=temp+" ";
+            temp=sc.next();
+        }
+         String answer = "";
+       temp = sc.next();
+        while(!temp.equals("@@@@@"))
+        {
+            answer+=temp+" ";
+            temp=sc.next();
+        }     
+       question q  = new question(question, 2, answer, "");
+         myquiz.add(q);
+            
+        }
+    }
+    
+   } 
+    
+    public  void setQuestion(int index){
+        jLabel2.setText("Question : " + (index+1) + "/" + myquiz.getNumQuestions());
+   question q  = myquiz.getQuestion(index);
+  if(q.getType()==0){
+         jTextArea2.setText("");
+        jTextArea2.setEnabled(false);
+             jRadioButton1.setEnabled(true);
+        jRadioButton2.setEnabled(true);
+    jRadioButton3.setEnabled(true);
+    jRadioButton4.setEnabled(true);
+        jTextField1.setEnabled(true);
+jTextField2.setEnabled(true);
+jTextField3.setEnabled(true);
+jTextField4.setEnabled(true);
+         buttonGroup1.add(jRadioButton1);
+                  buttonGroup1.add(jRadioButton2);
+         buttonGroup1.add(jRadioButton3);
+         buttonGroup1.add(jRadioButton4);
+   jTextArea1.setText(q.getText());
+   jTextField1.setText(q.getAnswer1());
+      jTextField2.setText(q.getAnswer2());
+   jTextField3.setText(q.getAnswer3());
+   jTextField4.setText(q.getAnswer4());
+   
+   if(GUI.usertype==1){    jRadioButton1.setSelected(false);
+        jRadioButton2.setSelected(false);
+    jRadioButton3.setSelected(false);
+    jRadioButton4.setSelected(false);
+      if(q.getCorrectAnswers().contains(1))jRadioButton1.setSelected(true);
+    if(q.getCorrectAnswers().contains(2))jRadioButton2.setSelected(true);
+
+      if(q.getCorrectAnswers().contains(3))jRadioButton3.setSelected(true);
+  if(q.getCorrectAnswers().contains(4))jRadioButton4.setSelected(true);   
+   }else
+if(q.getUserAnswers().size()>0){
+  
+  if(q.getUserAnswers().contains(1))jRadioButton1.setSelected(true);
+    if(q.getUserAnswers().contains(2))jRadioButton2.setSelected(true);
+
+      if(q.getUserAnswers().contains(3))jRadioButton3.setSelected(true);
+  if(q.getUserAnswers().contains(4))jRadioButton4.setSelected(true);
+
+  
+}
+  }
+    if(q.getType()==1){
+        jTextArea2.setText("");
+        jTextArea2.setEnabled(false);
+           jRadioButton1.setEnabled(true);
+        jRadioButton2.setEnabled(true);
+    jRadioButton3.setEnabled(true);
+    jRadioButton4.setEnabled(true);
+    jTextField1.setEnabled(true);
+jTextField2.setEnabled(true);
+jTextField3.setEnabled(true);
+jTextField4.setEnabled(true);
+           buttonGroup1.remove(jRadioButton1);
+                  buttonGroup1.remove(jRadioButton2);
+         buttonGroup1.remove(jRadioButton3);
+         buttonGroup1.remove(jRadioButton4);
+   jTextArea1.setText(q.getText());
+   jTextField1.setText(q.getAnswer1());
+      jTextField2.setText(q.getAnswer2());
+   jTextField3.setText(q.getAnswer3());
+   jTextField4.setText(q.getAnswer4());
+    if(GUI.usertype==1){
+           jRadioButton1.setSelected(false);
+        jRadioButton2.setSelected(false);
+    jRadioButton3.setSelected(false);
+    jRadioButton4.setSelected(false);
+      if(q.getCorrectAnswers().contains(1))jRadioButton1.setSelected(true);
+    if(q.getCorrectAnswers().contains(2))jRadioButton2.setSelected(true);
+
+      if(q.getCorrectAnswers().contains(3))jRadioButton3.setSelected(true);
+  if(q.getCorrectAnswers().contains(4))jRadioButton4.setSelected(true);  
+ 
+   }else
+if(q.getUserAnswers().size()>0){
+  
+  if(q.getUserAnswers().contains(1))jRadioButton1.setSelected(true);
+    if(q.getUserAnswers().contains(2))jRadioButton2.setSelected(true);
+
+      if(q.getUserAnswers().contains(3))jRadioButton3.setSelected(true);
+  if(q.getUserAnswers().contains(4))jRadioButton4.setSelected(true);
+
+  
+}
+  } 
+        if(q.getType()==2){
+           jTextArea2.setEnabled(true);
+    jRadioButton1.setEnabled(false);
+        jRadioButton2.setEnabled(false);
+    jRadioButton3.setEnabled(false);
+    jRadioButton4.setEnabled(false);
+jTextField1.setEnabled(false);
+jTextField2.setEnabled(false);
+jTextField3.setEnabled(false);
+jTextField4.setEnabled(false);
+
+   jTextArea1.setText(q.getText());
+   jTextField1.setText("");
+      jTextField2.setText("");
+   jTextField3.setText("");
+   jTextField4.setText("");
+   if(GUI.usertype==1){
+     jTextArea2.setText(q.getCorrextCode());  
+   }
+   else
+if(!q.getUserCode().equals("")){
+jTextArea2.setText(q.getUserCode());
+
+  
+}else jTextArea2.setText("write the answer here please ..");
+  } 
+    }
+    int index=0;
+      public void setQuestionPanelState(boolean b){
+     jPanel1.setEnabled(b);
+     jTextArea1.setEnabled(b);
+     jTextField1.setEnabled(b);
+     jTextField2.setEnabled(b);
+     jTextField3.setEnabled(b);
+     jTextField4.setEnabled(b);
+     jRadioButton1.setEnabled(b);
+     jRadioButton2.setEnabled(b);
+     jRadioButton3.setEnabled(b);
+     jRadioButton4.setEnabled(b);
+    
+    }
+      
+    private void jButton1ActionPerformed(ActionEvent evt) {
+ if(index-1>-1){
+        setQuestion(--index);
+    }else
+        JOptionPane.showMessageDialog(rootPane, "there is no previous questions , this is the first one");
+    }
+
+    private void jButton2ActionPerformed(ActionEvent evt) {
+    if(index+1<=max-1){
+        setQuestion(++index);
+
+    }else
+        JOptionPane.showMessageDialog(rootPane, "there is no next questions , this is the last one");
+    }
+quiz myquiz;
+    private void jButton6ActionPerformed(ActionEvent evt) {
+    if(myquiz.getQuestion(index).getType()!=2){ 
+      if(jRadioButton1.isSelected()) myquiz.getQuestion(index).getUserAnswers().add(1);
+      if(jRadioButton2.isSelected()) myquiz.getQuestion(index).getUserAnswers().add(2);
+         if(jRadioButton3.isSelected()) myquiz.getQuestion(index).getUserAnswers().add(3);
+            if(jRadioButton4.isSelected()) myquiz.getQuestion(index).getUserAnswers().add(4);
+    }else{
+      myquiz.getQuestion(index).setUserCode(jTextArea2.getText());
+    }
+      JOptionPane.showMessageDialog(rootPane, "Your answer is saved.");
+    }
+
+    private void jButton5ActionPerformed(ActionEvent evt) {
+      int score = myquiz.getScore();
+      double percentage = (double)score/(double)myquiz.getNumQuestions()*100;
+      String result = "";
+      if(percentage>50)
+     result = String.format("Dear student\n"
+                + "your score is : %.2f /100\n"
+               + "You have answered "+score+" questions correctly out of " + myquiz.getNumQuestions()+""
+                + "\n that is impressive , you passed  , congratulations" , percentage);
+      else
+      result = String.format("Dear student\n"
+                + "your score is : %.2f /100\n"
+               + "You have answered "+score+" questions correctly out of " + myquiz.getNumQuestions()+""
+                + "\n sorry you didnt you passed  , try again later" , percentage);
+        JOptionPane.showMessageDialog(rootPane,result);
+         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+
+    private void formComponentShown(ComponentEvent evt) {
+           try {
+           prepareQuiz(); setQuestion(index);
+           if(GUI.usertype==1){
+               jLabel1.setText("Quiz Editor");
+           jButton6.setVisible(false);
+               jButton5.setVisible(false);
+
+           }else{
+               jButton4.setVisible(false);
+               jButton7.setVisible(false);
+
+           }
+       } catch (FileNotFoundException ex) {
+           Logger.getLogger(RunQuiz.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+    }
+    private void jButton7ActionPerformed(ActionEvent evt) {
+    String question = jTextArea1.getText();
+      if(question.equals("")){
+           JOptionPane.showMessageDialog(rootPane, "Please enter the question");
+            return;
+      }
+ 
+     if(myquiz.getQuestion(index).getType()!=2){
+              String answer1 = jTextField1.getText() , 
+              answer2 = jTextField2.getText() , 
+              answer3 = jTextField3.getText() , 
+              answer4 = jTextField4.getText();
+     if(answer1.equals("")||answer2.equals("")||answer3.equals("")||answer4.equals("")){
+      JOptionPane.showMessageDialog(rootPane, "One of the answers is empty !");
+            return;    
+     }
+         ArrayList<Integer> correct_answers = new ArrayList<>();
+      if(jRadioButton1.isSelected())correct_answers.add(1);
+      if(jRadioButton2.isSelected())correct_answers.add(2);
+       if(jRadioButton3.isSelected())correct_answers.add(3);
+      if(jRadioButton4.isSelected())correct_answers.add(4);
+myquiz.getQuestion(index).setText(question);
+myquiz.getQuestion(index).setAnswer1(answer1);
+myquiz.getQuestion(index).setAnswer2(answer2);
+myquiz.getQuestion(index).setAnswer3(answer3);
+myquiz.getQuestion(index).setAnswer4(answer4);
+myquiz.getQuestion(index).setCorrectAnswers(correct_answers);
+
+
+
+
+
+     }else{
+         
+        String answer = jTextArea2.getText();
+              if(answer.equals("")){
+           JOptionPane.showMessageDialog(rootPane, "Please enter the answer code");
+            return;
+      } 
+myquiz.getQuestion(index).setText(question);
+myquiz.getQuestion(index).setCorrextCode(answer);
+
+
+     
+         
+         
+     }
+ JOptionPane.showMessageDialog(rootPane, "Saved !");
+    }
+
+    private void jButton4ActionPerformed(ActionEvent evt) {
+            try {
+            String name = "quizzes/"+filename+".quiz";
+            name.replace(" ", "");
+            System.out.println(name);
+            File folder = new File(name);
+            if(!folder.exists())folder.createNewFile();
+            PrintWriter pw = new PrintWriter(folder);
+            pw.append(filename+"\n");
+            pw.append(myquiz.getNumQuestions()+"\n");
+for(int i=0;i<myquiz.getNumQuestions();i++)
+{
+    if(myquiz.getQuestion(i).getType()!=2){
+     pw.write(myquiz.getQuestion(i).getType() + "\n");
+
+        pw.write(myquiz.getQuestion(i).getText()+"\n");
+    pw.write("@@@@@\n");
+      pw.write(myquiz.getQuestion(i).getAnswer1()+"\n");
+    pw.write("@@@@@\n");
+      pw.write(myquiz.getQuestion(i).getAnswer2()+"\n");
+    pw.write("@@@@@\n");
+      pw.write(myquiz.getQuestion(i).getAnswer3()+"\n");
+     pw.write("@@@@@\n");
+      pw.write(myquiz.getQuestion(i).getAnswer4()+"\n");
+     pw.write("@@@@@\n");
+    for(int j=0;j<myquiz.getQuestion(i).getCorrectAnswers().size();j++)
+        pw.write(myquiz.getQuestion(i).getCorrectAnswers().get(j)+" ");
+    pw.write("\n");
+    pw.write("@@@@@\n");
+    pw.write("\n");
+    } else{
+            pw.write(myquiz.getQuestion(i).getType() + "\n");
+
+     pw.write(myquiz.getQuestion(i).getText()+"\n");
+    pw.write("@@@@@\n");
+        pw.write(myquiz.getQuestion(i).getCorrextCode()+"\n");
+ pw.write("@@@@@\n");
+    pw.write("\n");
+    }
+}   
+ pw.close();
+   JOptionPane.showMessageDialog(rootPane,"Quiz Updated successfully");
+ this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        } catch (IOException ex) {
+            Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+   
+    public static void main(String args[]) {
+     
+    
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RunQuiz().setVisible(true);
+            }
+        });
+    }
+
+                 
+    private ButtonGroup buttonGroup1;
+    private JButton jButton1;
+    private JButton jButton2;
+    private JButton jButton4;
+    private JButton jButton5;
+    private JButton jButton6;
+    private JButton jButton7;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel5;
+    private JLabel jLabel9;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JRadioButton jRadioButton1;
+    private JRadioButton jRadioButton2;
+    private JRadioButton jRadioButton3;
+    private JRadioButton jRadioButton4;
+    private JScrollPane jScrollPane1;
+    private JScrollPane jScrollPane2;
+    private JTextArea jTextArea1;
+    private JTextArea jTextArea2;
+    private JTextField jTextField1;
+    private JTextField jTextField2;
+    private JTextField jTextField3;
+    private JTextField jTextField4;
+   
+}
