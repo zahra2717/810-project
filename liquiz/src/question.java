@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Rock
+ * @author zahra
  */
 public class question {
   private String text;
