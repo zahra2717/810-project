@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author jin
+ * @author Jintao
  */
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,7 @@ import java.awt.event.*;
 
 /**
  *
- * @author Rock
+ * @author Jintao
  */
 public class AddQuiz extends JFrame {
 
