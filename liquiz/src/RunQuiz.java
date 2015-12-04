@@ -345,7 +345,7 @@ public class RunQuiz extends JFrame {
             
         }
     }
-    
+    sc.close();
    } 
     
     public  void setQuestion(int index){

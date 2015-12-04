@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jintao
  */
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.io.File;
+//import java.io.IOException;
+//import java.io.PrintWriter;
+//import java.util.ArrayList;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -59,7 +59,7 @@ public class AddQuiz extends JFrame {
         jLabel9 = new JLabel();
         jTextField7 = new JTextField();
         jButton1 = new JButton();
-        jComboBox1 = new JComboBox();
+        jComboBox1 = new JComboBox<Object>();
         jScrollPane2 = new JScrollPane();
         jTextArea2 = new JTextArea();
         jTextField5 = new JTextField();
@@ -113,7 +113,7 @@ public class AddQuiz extends JFrame {
             }
         });
 
-        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { "Single choice", "Multi choice", "Code" , "Formula" }));
+        jComboBox1.setModel(new DefaultComboBoxModel<Object>(new String[] { "Single choice", "Multi choice", "code" , "regix" , "Formula" }));
         jComboBox1.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -514,7 +514,7 @@ for(int i=0;i<total;i++)
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
-    private JComboBox jComboBox1;
+    private JComboBox<Object> jComboBox1;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
