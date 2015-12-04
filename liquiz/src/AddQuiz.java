@@ -25,7 +25,7 @@ import java.awt.event.*;
 
 /**
  *
- * @author Jintao
+ * @author Jintao L
  */
 public class AddQuiz extends JFrame {
 
