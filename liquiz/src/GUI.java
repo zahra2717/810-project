@@ -28,7 +28,7 @@ public class GUI extends JFrame {
                  jPanel2 = new JPanel();
                  jLabel4 = new JLabel();
                   jScrollPane1 = new JScrollPane();
-                  jList1 = new JList();
+                  jList1 = new JList<String>();
               jButton1 = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
