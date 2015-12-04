@@ -230,7 +230,7 @@ public static int usertype=0;
     private JLabel jLabel2;
     private JLabel jLabel3;
     private JLabel jLabel4;
-    private JList jList1;
+    private JList<String> jList1;
     private JPanel jPanel1;
     private JPanel jPanel2;
     private JScrollPane jScrollPane1;
