@@ -270,7 +270,7 @@ public class RunQuiz extends JFrame {
    public void prepareQuiz() throws FileNotFoundException{
        File f  = new File("quizzes/"+filename+".quiz");
        Scanner sc  = new Scanner(f);
-       String name = sc.next();
+       //String name = sc.next();
        int count = sc.nextInt();
        max=count;
        myquiz = new quiz(count);
