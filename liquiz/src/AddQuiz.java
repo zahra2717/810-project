@@ -25,7 +25,7 @@ import java.awt.event.*;
 
 /**
  *
- * @author Jintao L
+ * @author Jintao 
  */
 public class AddQuiz extends JFrame {
 
@@ -74,13 +74,13 @@ public class AddQuiz extends JFrame {
         jPanel1.setBorder(BorderFactory.createEtchedBorder());
         jPanel1.setEnabled(false);
 
-        jLabel1.setText("Enter Answer one : ");
+        jLabel1.setText("Enter Answer#1 : ");
 
-        jLabel2.setText("Enter Answer two : ");
+        jLabel2.setText("Enter Answer#2 : ");
 
-        jLabel3.setText("Enter Answer three : ");
+        jLabel3.setText("Enter Answer#3 : ");
 
-        jLabel4.setText("Enter Answer four : ");
+        jLabel4.setText("Enter Answer#4 : ");
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setSelected(true);
@@ -113,7 +113,7 @@ public class AddQuiz extends JFrame {
             }
         });
 
-        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { "Single choice", "Multi choice", "code" , "regix" , "Formula" }));
+        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { "Single choice", "Multi choice", "Code" , "Formula" }));
         jComboBox1.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -227,11 +227,11 @@ public class AddQuiz extends JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField5.setText("quiz");
+        jTextField5.setText("Quiz");
 
-        jLabel7.setText("Enter name of the quiz");
+        jLabel7.setText("Enter name of the Quiz");
 
-        jLabel8.setText("Enter number of questions");
+        jLabel8.setText("Enter number of Questions");
 
         jTextField6.setText("5");
 
