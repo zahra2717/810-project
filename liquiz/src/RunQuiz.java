@@ -10,14 +10,21 @@ import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ *
+ * @author 
+ * @author 
+ */
+
 
 public class RunQuiz extends JFrame {
 
    private String filename;
-    public RunQuiz(String filename) {
+   GUI g;
+    public RunQuiz(String filename , GUI g) {
         initComponents();
         this.filename = filename;
-                
+         this.g=g;       
     }
 
     public RunQuiz() {
@@ -270,7 +277,7 @@ public class RunQuiz extends JFrame {
    public void prepareQuiz() throws FileNotFoundException{
        File f  = new File("quizzes/"+filename+".quiz");
        Scanner sc  = new Scanner(f);
-       //String name = sc.next();
+       String name = sc.next();
        int count = sc.nextInt();
        max=count;
        myquiz = new quiz(count);
@@ -345,7 +352,7 @@ public class RunQuiz extends JFrame {
             
         }
     }
-    sc.close();
+    
    } 
     
     public  void setQuestion(int index){
@@ -436,7 +443,7 @@ if(q.getUserAnswers().size()>0){
   
 }
   } 
-        if(q.getType()==2){
+        if(q.getType()>=2){
            jTextArea2.setEnabled(true);
     jRadioButton1.setEnabled(false);
         jRadioButton2.setEnabled(false);
@@ -593,6 +600,13 @@ myquiz.getQuestion(index).setCorrextCode(answer);
 
     private void jButton4ActionPerformed(ActionEvent evt) {
             try {
+                
+               int counter=0;
+               while(new File("quizzes/"+filename+".quiz").exists()){
+                   filename=filename+"copy"+counter;
+                   counter++;
+               }
+                
             String name = "quizzes/"+filename+".quiz";
             name.replace(" ", "");
             System.out.println(name);
@@ -633,6 +647,7 @@ for(int i=0;i<myquiz.getNumQuestions();i++)
 }   
  pw.close();
    JOptionPane.showMessageDialog(rootPane,"Quiz Updated successfully");
+   g.refershQuizzesList();
  this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         } catch (IOException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);

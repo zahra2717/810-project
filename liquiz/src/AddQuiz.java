@@ -1,40 +1,32 @@
 
-import java.awt.event.ItemEvent;
-import java.awt.event.WindowEvent;
+
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-
-/**
- *
- * @author Jintao
- */
-//import java.io.File;
-//import java.io.IOException;
-//import java.io.PrintWriter;
-//import java.util.ArrayList;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.event.*;
 
 
 /**
  *
- * @author Jintao 
+ * @author 
  */
 public class AddQuiz extends JFrame {
-
+GUI gui;
   
     public AddQuiz() {
         initComponents();
         setQuestionPanelState(false);
     }
-
+    public AddQuiz(GUI g) {
+        initComponents();
+        this.gui = g;
+        setQuestionPanelState(false);
+    }
 
     private void initComponents() {
 
@@ -59,7 +51,7 @@ public class AddQuiz extends JFrame {
         jLabel9 = new JLabel();
         jTextField7 = new JTextField();
         jButton1 = new JButton();
-        jComboBox1 = new JComboBox<Object>();
+        jComboBox1 = new JComboBox();
         jScrollPane2 = new JScrollPane();
         jTextArea2 = new JTextArea();
         jTextField5 = new JTextField();
@@ -74,13 +66,13 @@ public class AddQuiz extends JFrame {
         jPanel1.setBorder(BorderFactory.createEtchedBorder());
         jPanel1.setEnabled(false);
 
-        jLabel1.setText("Enter Answer#1 : ");
+        jLabel1.setText("Enter Answer one : ");
 
-        jLabel2.setText("Enter Answer#2 : ");
+        jLabel2.setText("Enter Answer two : ");
 
-        jLabel3.setText("Enter Answer#3 : ");
+        jLabel3.setText("Enter Answer three : ");
 
-        jLabel4.setText("Enter Answer#4 : ");
+        jLabel4.setText("Enter Answer four : ");
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setSelected(true);
@@ -113,7 +105,7 @@ public class AddQuiz extends JFrame {
             }
         });
 
-        jComboBox1.setModel(new DefaultComboBoxModel<Object>(new String[] { "Single choice", "Multi choice", "code" , "regix" , "Formula" }));
+        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { "Single choice", "Multi choice", "code" , "regix" , "Formula" }));
         jComboBox1.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -227,11 +219,11 @@ public class AddQuiz extends JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField5.setText("Quiz");
+        jTextField5.setText("quiz");
 
-        jLabel7.setText("Enter name of the Quiz");
+        jLabel7.setText("Enter name of the quiz");
 
-        jLabel8.setText("Enter number of Questions");
+        jLabel8.setText("Enter number of questions");
 
         jTextField6.setText("5");
 
@@ -430,7 +422,7 @@ jTextField7.setText("done");
             pw.append(jTextField6.getText()+"\n");
 for(int i=0;i<total;i++)
 {
-    if(myquiz.getQuestion(i).getType()!=2){
+    if(myquiz.getQuestion(i).getType()<=2){
      pw.write(myquiz.getQuestion(i).getType() + "\n");
 
         pw.write(myquiz.getQuestion(i).getText()+"\n");
@@ -460,6 +452,7 @@ for(int i=0;i<total;i++)
 }   
  pw.close();
    JOptionPane.showMessageDialog(rootPane,"Quiz added successfully");
+   gui.refershQuizzesList();
  this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         } catch (IOException ex) {
             Logger.getLogger(AddQuiz.class.getName()).log(Level.SEVERE, null, ex);
@@ -514,7 +507,7 @@ for(int i=0;i<total;i++)
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
-    private JComboBox<Object> jComboBox1;
+    private JComboBox jComboBox1;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
