@@ -1,6 +1,7 @@
-
-
-
+/**
+ *
+ * @author 
+ */
 public class quiz {
    private question[] questions;
    private int numQuestions;
@@ -33,7 +34,8 @@ public class quiz {
                 if(yes)score++;
           }
             else{
-                if(q.getCorrextCode().equals(q.getUserCode()))score++;
+              System.out.println(" '"+q.getCorrextCode() + "' with '" + q.getUserCode() + "' is " +q.getCorrextCode().equalsIgnoreCase(q.getUserCode()));
+                if(q.getCorrextCode().trim().equals(q.getUserCode().trim()))score++;
             }
       return score;
   }

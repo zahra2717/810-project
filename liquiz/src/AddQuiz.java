@@ -422,7 +422,7 @@ jTextField7.setText("done");
             pw.append(jTextField6.getText()+"\n");
 for(int i=0;i<total;i++)
 {
-    if(myquiz.getQuestion(i).getType()<=2){
+    if(myquiz.getQuestion(i).getType()<2){
      pw.write(myquiz.getQuestion(i).getType() + "\n");
 
         pw.write(myquiz.getQuestion(i).getText()+"\n");
@@ -463,9 +463,30 @@ for(int i=0;i<total;i++)
 
        if (evt.getStateChange() == ItemEvent.SELECTED) {
         if(jComboBox1.getSelectedIndex()>=2)
+        {
             jTextArea2.setEnabled(true);
+   
+            jRadioButton1.setEnabled(false);
+            jRadioButton2.setEnabled(false);
+            jRadioButton3.setEnabled(false);
+            jRadioButton4.setEnabled(false);
+            jTextField1.setEnabled(false);
+                        jTextField2.setEnabled(false);
+            jTextField3.setEnabled(false);
+            jTextField4.setEnabled(false);
+
+
+        }
        }else if(jComboBox1.getSelectedIndex()==1)
        {
+             jRadioButton1.setEnabled(true);
+            jRadioButton2.setEnabled(true);
+            jRadioButton3.setEnabled(true);
+            jRadioButton4.setEnabled(true);
+            jTextField1.setEnabled(true);
+                        jTextField2.setEnabled(true);
+            jTextField3.setEnabled(true);
+            jTextField4.setEnabled(true);
          buttonGroup1.remove(jRadioButton1);
                   buttonGroup1.remove(jRadioButton2);
          buttonGroup1.remove(jRadioButton3);
@@ -474,7 +495,14 @@ for(int i=0;i<total;i++)
 
        }
        else if(jComboBox1.getSelectedIndex()==0)
-       {
+       {   jRadioButton1.setEnabled(true);
+            jRadioButton2.setEnabled(true);
+            jRadioButton3.setEnabled(true);
+            jRadioButton4.setEnabled(true);
+            jTextField1.setEnabled(true);
+                        jTextField2.setEnabled(true);
+            jTextField3.setEnabled(true);
+            jTextField4.setEnabled(true);
          buttonGroup1.add(jRadioButton1);
                   buttonGroup1.add(jRadioButton2);
          buttonGroup1.add(jRadioButton3);
