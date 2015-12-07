@@ -13,7 +13,7 @@ import java.awt.event.*;
 
 /**
  *
- * @author 
+ * @author Jintao
  */
 public class AddQuiz extends JFrame {
 GUI gui;
@@ -66,13 +66,13 @@ GUI gui;
         jPanel1.setBorder(BorderFactory.createEtchedBorder());
         jPanel1.setEnabled(false);
 
-        jLabel1.setText("Enter Answer one : ");
+        jLabel1.setText("Enter Answer#1 : ");
 
-        jLabel2.setText("Enter Answer two : ");
+        jLabel2.setText("Enter Answer#2 : ");
 
-        jLabel3.setText("Enter Answer three : ");
+        jLabel3.setText("Enter Answer#3 : ");
 
-        jLabel4.setText("Enter Answer four : ");
+        jLabel4.setText("Enter Answer#4 : ");
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setSelected(true);
@@ -518,9 +518,7 @@ for(int i=0;i<total;i++)
    
     }
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
  
         java.awt.EventQueue.invokeLater(new Runnable() {
