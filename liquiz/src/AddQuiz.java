@@ -51,7 +51,7 @@ GUI gui;
         jLabel9 = new JLabel();
         jTextField7 = new JTextField();
         jButton1 = new JButton();
-        jComboBox1 = new JComboBox();
+        jComboBox1 = new JComboBox<Object>();
         jScrollPane2 = new JScrollPane();
         jTextArea2 = new JTextArea();
         jTextField5 = new JTextField();
@@ -105,7 +105,7 @@ GUI gui;
             }
         });
 
-        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { "Single choice", "Multi choice", "code" , "regix" , "Formula" }));
+        jComboBox1.setModel(new DefaultComboBoxModel<Object>(new String[] { "Single choice", "Multi choice", "code" , "regix" , "Formula" }));
         jComboBox1.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -533,7 +533,7 @@ for(int i=0;i<total;i++)
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
-    private JComboBox jComboBox1;
+    private JComboBox<Object> jComboBox1;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;

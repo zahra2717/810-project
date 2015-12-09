@@ -1,6 +1,6 @@
 /**
  *
- * @author 
+ * @author Jun
  */
 public class quiz {
    private question[] questions;
