@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.event.*;
-
+import java.awt.*;
 
 public class RunQuiz extends JFrame {
 
