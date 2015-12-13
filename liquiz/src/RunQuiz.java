@@ -1,6 +1,6 @@
 /**
  *
- * @author Xin
+ * @author Xin && Jun
  */
 
 import java.io.File;
