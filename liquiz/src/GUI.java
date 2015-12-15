@@ -1,18 +1,19 @@
-
+/**
+ *
+ * @author Zahra
+ */
 import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.*;
-/**
- *
- * @author Zahra
- */
+import java.awt.*;
+
 
 
 public class GUI extends JFrame {
-
+	   
     public GUI() {
         initComponents();
     }
@@ -41,26 +42,17 @@ public class GUI extends JFrame {
                 formComponentShown(evt);
             }
         });
-
-      
-
         jButton2.setText("Add a new Quiz");
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
         jTextField1.setText("admin");
-
         jLabel1.setText("Username");
-
         jTextField2.setText("admin");
-
         jLabel2.setText("Password");
-
         jLabel3.setText("Log in");
-
         jButton3.setText("log in");
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -68,7 +60,7 @@ public class GUI extends JFrame {
             }
         });
 
-       GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+       GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -113,20 +105,14 @@ public class GUI extends JFrame {
                 .addComponent(jButton2)
                 .addContainerGap())
         );
-
-       
-
         jLabel4.setText("Start a quiz");
-
         jScrollPane1.setViewportView(jList1);
-
         jButton1.setText("Open selected");
         jButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
    GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -173,7 +159,6 @@ GroupLayout layout = new GroupLayout(getContentPane());
                     .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
         pack();
     }                    
 
@@ -225,14 +210,13 @@ public static int usertype=0;
     
     public static void main(String args[]) {
    
-        java.awt.EventQueue.invokeLater(new Runnable() {
+
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);
             }
         });
     }
-
-   
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
@@ -246,5 +230,9 @@ public static int usertype=0;
     private JScrollPane jScrollPane1;
     private JTextField jTextField1;
     private JTextField jTextField2;
+
+
+   
+   
 
 }
