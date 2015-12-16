@@ -1,3 +1,15 @@
+/**
+ *
+ * @author Xin && Jun
+ */
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 
 
 import java.io.File;
@@ -12,10 +24,35 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class RunQuiz extends JFrame {
 
+public class RunQuiz extends JFrame {
    private String filename;
-   GUI g;
+   GUI   g = new GUI ();    
+   private ButtonGroup buttonGroup1;
+   private JButton jButton1;
+   private JButton jButton2;
+   private JButton jButton4;
+   private JButton jButton5;
+   private JButton jButton6;
+   private JButton jButton7;
+   private JLabel jLabel1;
+   private JLabel jLabel2;
+   private JLabel jLabel5;
+   private JLabel jLabel9;
+   private JPanel jPanel1;
+   private JPanel jPanel2;
+   private JRadioButton jRadioButton1;
+   private JRadioButton jRadioButton2;
+   private JRadioButton jRadioButton3;
+   private JRadioButton jRadioButton4;
+   private JScrollPane jScrollPane1;
+   private JScrollPane jScrollPane2;
+   private JTextArea jTextArea1;
+   private JTextArea jTextArea2;
+   private JTextField jTextField1;
+   private JTextField jTextField2;
+   private JTextField jTextField3;
+   private JTextField jTextField4;
     public RunQuiz(String filename , GUI g) {
         initComponents();
         this.filename = filename;
@@ -77,14 +114,14 @@ public class RunQuiz extends JFrame {
 
         buttonGroup1.add(jRadioButton4);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setFont(new Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Select an answer");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setFont(new Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Read the question");
 
         jButton1.setText("Previous Question");
@@ -214,7 +251,7 @@ public class RunQuiz extends JFrame {
                     .addContainerGap(17, Short.MAX_VALUE)))
         );
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18));
+        jButton5.setFont(new Font("Tahoma", 0, 18));
         jButton5.setText("I am done..Show my results");
         jButton5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -272,7 +309,7 @@ public class RunQuiz extends JFrame {
    public void prepareQuiz() throws FileNotFoundException{
        File f  = new File("quizzes/"+filename+".quiz");
        Scanner sc  = new Scanner(f);
-       //String name = sc.next();
+       String name = sc.next();
        int count = sc.nextInt();
        max=count;
        myquiz = new quiz(count);
@@ -347,7 +384,7 @@ public class RunQuiz extends JFrame {
             
         }
     }
-    sc.close();
+    
    } 
     
     public  void setQuestion(int index){
@@ -407,7 +444,7 @@ jTextField2.setEnabled(true);
 jTextField3.setEnabled(true);
 jTextField4.setEnabled(true);
            buttonGroup1.remove(jRadioButton1);
-                  buttonGroup1.remove(jRadioButton2);
+           buttonGroup1.remove(jRadioButton2);
          buttonGroup1.remove(jRadioButton3);
          buttonGroup1.remove(jRadioButton4);
    jTextArea1.setText(q.getText());
@@ -653,7 +690,7 @@ for(int i=0;i<myquiz.getNumQuestions();i++)
     public static void main(String args[]) {
      
     
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RunQuiz().setVisible(true);
             }
@@ -661,30 +698,6 @@ for(int i=0;i<myquiz.getNumQuestions();i++)
     }
 
                  
-    private ButtonGroup buttonGroup1;
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton4;
-    private JButton jButton5;
-    private JButton jButton6;
-    private JButton jButton7;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel5;
-    private JLabel jLabel9;
-    private JPanel jPanel1;
-    private JPanel jPanel2;
-    private JRadioButton jRadioButton1;
-    private JRadioButton jRadioButton2;
-    private JRadioButton jRadioButton3;
-    private JRadioButton jRadioButton4;
-    private JScrollPane jScrollPane1;
-    private JScrollPane jScrollPane2;
-    private JTextArea jTextArea1;
-    private JTextArea jTextArea2;
-    private JTextField jTextField1;
-    private JTextField jTextField2;
-    private JTextField jTextField3;
-    private JTextField jTextField4;
+   
    
 }
