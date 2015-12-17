@@ -73,7 +73,7 @@ public class GUI extends JFrame {
 
        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
        jPanel1Layout.setHorizontalGroup(
-       	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+       	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
        		.addGroup(jPanel1Layout.createSequentialGroup()
        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
        				.addGroup(jPanel1Layout.createSequentialGroup()
@@ -90,15 +90,12 @@ public class GUI extends JFrame {
        								.addGroup(jPanel1Layout.createSequentialGroup()
        									.addComponent(jLabel2)
        									.addPreferredGap(ComponentPlacement.UNRELATED)
-       									.addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))))))
+       									.addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
+       								.addComponent(jButton4, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
        				.addGroup(jPanel1Layout.createSequentialGroup()
        					.addContainerGap()
        					.addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)))
        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-       		.addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-       			.addContainerGap(32, Short.MAX_VALUE)
-       			.addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE)
-       			.addContainerGap())
        );
        jPanel1Layout.setVerticalGroup(
        	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
@@ -117,7 +114,7 @@ public class GUI extends JFrame {
        			.addComponent(jButton3)
        			.addPreferredGap(ComponentPlacement.RELATED)
        			.addComponent(jButton4)
-       			.addPreferredGap(ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+       			.addPreferredGap(ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
        			.addComponent(jButton2)
        			.addContainerGap())
        );
