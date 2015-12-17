@@ -9,6 +9,8 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 
@@ -35,6 +37,7 @@ public class GUI extends JFrame {
         jScrollPane1 = new JScrollPane();
         jList1 = new JList<String>();
         jButton1 = new JButton();
+        jButton4 = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new ComponentAdapter() {
@@ -59,52 +62,66 @@ public class GUI extends JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+       
+       jButton4.setEnabled(false);
+       jButton4.addActionListener(new ActionListener() {
+       	public void actionPerformed(ActionEvent evt) {
+       		jButton4ActionPerformed(evt);
+       	}
+       });
+       jButton4.setText("log out");
 
        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+       jPanel1Layout.setHorizontalGroup(
+       	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+       		.addGroup(jPanel1Layout.createSequentialGroup()
+       			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+       				.addGroup(jPanel1Layout.createSequentialGroup()
+       					.addGap(28)
+       					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+       						.addComponent(jLabel3)
+       						.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+       							.addGroup(jPanel1Layout.createSequentialGroup()
+       								.addComponent(jLabel1)
+       								.addPreferredGap(ComponentPlacement.UNRELATED)
+       								.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
+       							.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING, false)
+       								.addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+       								.addGroup(jPanel1Layout.createSequentialGroup()
+       									.addComponent(jLabel2)
+       									.addPreferredGap(ComponentPlacement.UNRELATED)
+       									.addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))))))
+       				.addGroup(jPanel1Layout.createSequentialGroup()
+       					.addContainerGap()
+       					.addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)))
+       			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+       		.addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+       			.addContainerGap(32, Short.MAX_VALUE)
+       			.addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE)
+       			.addContainerGap())
+       );
+       jPanel1Layout.setVerticalGroup(
+       	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+       		.addGroup(jPanel1Layout.createSequentialGroup()
+       			.addContainerGap()
+       			.addComponent(jLabel3)
+       			.addPreferredGap(ComponentPlacement.UNRELATED)
+       			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+       				.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+       				.addComponent(jLabel1))
+       			.addPreferredGap(ComponentPlacement.RELATED)
+       			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+       				.addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+       				.addComponent(jLabel2))
+       			.addPreferredGap(ComponentPlacement.UNRELATED)
+       			.addComponent(jButton3)
+       			.addPreferredGap(ComponentPlacement.RELATED)
+       			.addComponent(jButton4)
+       			.addPreferredGap(ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+       			.addComponent(jButton2)
+       			.addContainerGap())
+       );
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 108,GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1,GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2,GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
         jLabel4.setText("Start a quiz");
         jScrollPane1.setViewportView(jList1);
         jButton1.setText("Open selected");
@@ -196,6 +213,7 @@ refershQuizzesList();
         String selected = jList1.getSelectedValue().toString();
         RunQuiz r  = new RunQuiz(selected , this);
         r.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 public static int usertype=0;
     private void jButton3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -204,8 +222,14 @@ public static int usertype=0;
           usertype=1;
           JOptionPane.showMessageDialog(rootPane, "Welcome adminstrator");
           jButton3.setEnabled(false);
+          jButton4.setEnabled(true);
        }
     }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton4ActionPerformed(ActionEvent evt){
+    	usertype=0;
+    	jButton3.setEnabled(true);
+    	jButton4.setEnabled(false);
+    }
 
     
     public static void main(String args[]) {
@@ -220,6 +244,7 @@ public static int usertype=0;
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
+    private JButton jButton4;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
@@ -230,9 +255,4 @@ public static int usertype=0;
     private JScrollPane jScrollPane1;
     private JTextField jTextField1;
     private JTextField jTextField2;
-
-
-   
-   
-
 }
