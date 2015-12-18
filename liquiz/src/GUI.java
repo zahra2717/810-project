@@ -128,30 +128,30 @@ public class GUI extends JFrame {
             }
         });
    GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
+   jPanel2Layout.setHorizontalGroup(
+   	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+   		.addGroup(jPanel2Layout.createSequentialGroup()
+   			.addContainerGap()
+   			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+   				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+   				.addGroup(jPanel2Layout.createSequentialGroup()
+   					.addComponent(jLabel4)
+   					.addGap(0, 189, Short.MAX_VALUE))
+   				.addComponent(jButton1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
+   			.addContainerGap())
+   );
+   jPanel2Layout.setVerticalGroup(
+   	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+   		.addGroup(jPanel2Layout.createSequentialGroup()
+   			.addContainerGap()
+   			.addComponent(jLabel4)
+   			.addPreferredGap(ComponentPlacement.UNRELATED)
+   			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
+   			.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+   			.addComponent(jButton1)
+   			.addContainerGap())
+   );
         jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton1,GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
 
 GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
